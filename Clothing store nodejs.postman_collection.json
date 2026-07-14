@@ -1,0 +1,488 @@
+{
+	"info": {
+		"_postman_id": "6be1a0ed-1be9-4a9d-be82-7cc21bae79b0",
+		"name": "Clothing store nodejs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33233882"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "create Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Child's Clothing\",\n  \"description\": \"All kinds of clothes and shirts for child's\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all categoreis",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Womens's Clothing\",\n  \"description\": \"All kinds of clothes and shirts for Womens's\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/categories?page=1&limit=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "create product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNTRkN2VlZmU3YjI4ODQxMzNkZTczMyIsImlhdCI6MTc4Mzk0NTk0NCwiZXhwIjoxNzkxNzIxOTQ0fQ.6HYAg4r7XkINrNz_5WjbZf0aCN7TMXyg1TdwCTNsd0Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Slim Fit ahmed Summer Shirt for man\",\n  \"description\": \"High-quality cotton shirt perfect for hot summer days\",\n  \"price\": 29.99,\n  \"brand\": \"Zara\",\n  \"colors\": [\"White\", \"Light Blue\", \"Beige\"],\n  \"sizes\": [\"M\", \"L\", \"XL\"],\n  \"stock\": 60,\n  \"category\": \"6a54b34795f1e8343b2f41e7\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNTRkN2VlZmU3YjI4ODQxMzNkZTczMyIsImlhdCI6MTc4Mzk0NjkyMiwiZXhwIjoxNzkxNzIyOTIyfQ.Z9fAlwKi5CBq6SREc8AqVais9nSO8YSESsePdLaP6Vk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/products?page=1&limit=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/products/6a54d26f7525a17194ac4f8c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products",
+								"6a54d26f7525a17194ac4f8c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Ahmed Gamal\",\n  \"email\": \"ahmed.gamal@example.com\",\n  \"password\": \"supersecurepassword123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"ahmed.gamal@example.com\",\n  \"password\": \"supersecurepassword123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNTRkN2VlZmU3YjI4ODQxMzNkZTczMyIsImlhdCI6MTc4Mzk0NjkyMiwiZXhwIjoxNzkxNzIyOTIyfQ.Z9fAlwKi5CBq6SREc8AqVais9nSO8YSESsePdLaP6Vk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"productId\": \"6a54d2907525a17194ac4f8d\", \n  \"quantity\": 1,\n  \"color\": \"Beige\",\n  \"size\": \"L\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all product in cart",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNTRkN2VlZmU3YjI4ODQxMzNkZTczMyIsImlhdCI6MTc4Mzk0NjkyMiwiZXhwIjoxNzkxNzIyOTIyfQ.Z9fAlwKi5CBq6SREc8AqVais9nSO8YSESsePdLaP6Vk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"productId\": \"65f8c123456789abcdef0123\", \n  \"quantity\": 2,\n  \"color\": \"Black\",\n  \"size\": \"XL\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "checkout success",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNTRkN2VlZmU3YjI4ODQxMzNkZTczMyIsImlhdCI6MTc4Mzk0NjkyMiwiZXhwIjoxNzkxNzIyOTIyfQ.Z9fAlwKi5CBq6SREc8AqVais9nSO8YSESsePdLaP6Vk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"shippingAddress\": \"123 El-Tahrir Street, Cairo, Egypt\",\n  \"phone\": \"+201012345678\",\n  \"paymentMethod\": \"COD\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get my orders for login user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNTRkN2VlZmU3YjI4ODQxMzNkZTczMyIsImlhdCI6MTc4Mzk0NjkyMiwiZXhwIjoxNzkxNzIyOTIyfQ.Z9fAlwKi5CBq6SREc8AqVais9nSO8YSESsePdLaP6Vk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"productId\": \"65f8c123456789abcdef0123\", \n  \"quantity\": 2,\n  \"color\": \"Black\",\n  \"size\": \"XL\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update my checkout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNTRkN2VlZmU3YjI4ODQxMzNkZTczMyIsImlhdCI6MTc4Mzk0NjkyMiwiZXhwIjoxNzkxNzIyOTIyfQ.Z9fAlwKi5CBq6SREc8AqVais9nSO8YSESsePdLaP6Vk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"shipped\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/orders/6a54e1f8a9570f9caf26a915/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders",
+								"6a54e1f8a9570f9caf26a915",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancel order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNTRkN2VlZmU3YjI4ODQxMzNkZTczMyIsImlhdCI6MTc4Mzk0NjkyMiwiZXhwIjoxNzkxNzIyOTIyfQ.Z9fAlwKi5CBq6SREc8AqVais9nSO8YSESsePdLaP6Vk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"productId\": \"65f8c123456789abcdef0123\", \n  \"quantity\": 2,\n  \"color\": \"Black\",\n  \"size\": \"XL\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
